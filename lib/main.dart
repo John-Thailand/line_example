@@ -35,7 +35,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void _signIn() async {
     try {
-      final result = await LineSDK.instance.login();
+      final result =
+          await LineSDK.instance.login(scopes: ["profile", "openid", "email"]);
       debugPrint('A');
     } on PlatformException catch (e) {
       debugPrint(e.toString());
